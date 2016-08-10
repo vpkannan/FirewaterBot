@@ -33,30 +33,29 @@ public class DrinkMaster {
 	}
 	// Get drink recipe by drink name
 
-	public void getDrinkByDrinkName(String drinkName) {
+	public String getDrinkByDrinkName(String drinkName) {
 
 		String restUrl = this.constructUrl(GET_DRINK_BY_NAME_PROPERTY, drinkName);
-
+		String response = "";
 		try {
 
 			URL url = new URL(restUrl);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Accept", "application/json");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Accept", "application/json");
 
-			if (conn.getResponseCode() != 200) {
-				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+			if (connection.getResponseCode() != 200) {
+				throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
 			}
 
-			BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+			BufferedReader br = new BufferedReader(new InputStreamReader((connection.getInputStream())));
 
-			String output;
 			System.out.println("Output from Server .... \n");
-			while ((output = br.readLine()) != null) {
-				System.out.println(output);
+			while ((response = br.readLine()) != null) {
+				System.out.println(response);
 			}
 
-			conn.disconnect();
+			connection.disconnect();
 
 		} catch (MalformedURLException e) {
 
@@ -67,7 +66,7 @@ public class DrinkMaster {
 			e.printStackTrace();
 
 		}
-
+		return response;
 	}
 
 	// Get drinks by base drink

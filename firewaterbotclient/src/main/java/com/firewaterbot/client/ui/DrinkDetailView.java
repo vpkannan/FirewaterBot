@@ -3,6 +3,8 @@
  */
 package com.firewaterbot.client.ui;
 
+import com.firewaterbot.client.rest.DrinkMaster;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,6 +27,12 @@ public class DrinkDetailView extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
+		DrinkMaster drinkMaster = new DrinkMaster();
+		drinkMaster.getDrinkByDrinkName("Martini");
+		
+		
+		
+		
 		primaryStage.setTitle("Hello World!");
 		Button btn = new Button();
 		btn.setText("Say 'Hello World'");
