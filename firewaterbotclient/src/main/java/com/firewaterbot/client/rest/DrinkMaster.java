@@ -48,11 +48,15 @@ public class DrinkMaster {
 				throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
 			}
 
-			BufferedReader br = new BufferedReader(new InputStreamReader((connection.getInputStream())));
+			InputStreamReader inputStreamReader = new InputStreamReader((connection.getInputStream()));
+
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
 			System.out.println("Output from Server .... \n");
-			while ((response = br.readLine()) != null) {
-				System.out.println(response);
+			String currentLine = "";
+			while ((currentLine = bufferedReader.readLine()) != null) {
+				response = response + currentLine;
+				System.out.println(currentLine);
 			}
 
 			connection.disconnect();
@@ -66,6 +70,7 @@ public class DrinkMaster {
 			e.printStackTrace();
 
 		}
+		System.out.println("Resp - " + response);
 		return response;
 	}
 

@@ -3,7 +3,6 @@
  */
 package com.firewaterbot.client.launcher;
 
-import com.firewaterbot.client.rest.DrinkMaster;
 import com.firewaterbot.client.ui.DrinkDetailView;
 
 import javafx.application.Application;
@@ -17,9 +16,9 @@ public class BotClient {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 
-		DrinkMaster drinkMaster = new DrinkMaster();
+		// DrinkMaster drinkMaster = new DrinkMaster();
 
-		drinkMaster.getDrinkByDrinkName("Martini");
+		// drinkMaster.getDrinkByDrinkName("Martini");
 
 		new Thread() {
 			@Override
