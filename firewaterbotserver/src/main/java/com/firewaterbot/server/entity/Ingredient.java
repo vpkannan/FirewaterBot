@@ -3,8 +3,6 @@
  */
 package com.firewaterbot.server.entity;
 
-import java.io.File;
-
 /**
  * @author Vignesh
  *

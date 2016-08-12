@@ -3,7 +3,6 @@
  */
 package com.firewaterbot.server.rest;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.GET;

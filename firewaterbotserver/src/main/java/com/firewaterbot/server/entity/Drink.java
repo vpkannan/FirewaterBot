@@ -3,7 +3,6 @@
  */
 package com.firewaterbot.server.entity;
 
-import java.io.File;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
