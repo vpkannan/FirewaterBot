@@ -38,7 +38,7 @@ public class DrinkDetailView extends Application {
 	private String drinkName = "Martini";
 	private List<String> ingredients;
 
-	private static final Font ITALIC_FONT = Font.font("Serif", FontPosture.ITALIC, 25);
+	private static final Font ITALIC_FONT = Font.font("Verdana", FontPosture.ITALIC, 15);
 
 	/*
 	 * (non-Javadoc)
@@ -56,7 +56,7 @@ public class DrinkDetailView extends Application {
 
 		GridPane grid = new GridPane();
 
-		grid.add(this.titleLabel, 0, 0, 2, 1);
+		grid.add(this.titleLabel, 1, 0, 2, 1);
 
 		// grid.add(this.baseDrink, 0, 1, 2, 1);
 
@@ -94,12 +94,12 @@ public class DrinkDetailView extends Application {
 		String ingredientsString = "";
 		for (String ingredient : ingredients) {
 			if (ingredientsString != "") {
-				ingredientsString = ingredientsString + ", " + ingredient;
+				ingredientsString = ingredientsString + ", " + ingredient.toLowerCase();
 			} else {
-				ingredientsString = ingredientsString + ingredient;
+				ingredientsString = "   (" + ingredient.toLowerCase();
 			}
 		}
-
+		ingredientsString = ingredientsString + ") ";
 		ingredientsLabel = new Label(ingredientsString);
 
 		// this.dispense.setText("Dispense");
@@ -114,7 +114,7 @@ public class DrinkDetailView extends Application {
 
 	private void setStyle() {
 		this.titleLabel.setFont(new Font(STYLESHEET_MODENA, 50.0));
-		this.baseDrink.setFont(ITALIC_FONT);
+		this.ingredientsLabel.setFont(ITALIC_FONT);
 
 	}
 
